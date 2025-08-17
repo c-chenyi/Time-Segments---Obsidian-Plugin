@@ -1,0 +1,359 @@
+/* 时间轴视图基本样式 */
+.time-segments-view {
+  padding: 16px;
+  font-family: var(--font-interface);
+}
+
+/* 标题栏 */
+.time-segments-header {
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 12px;
+}
+
+.time-segments-title {
+  margin: 0;
+  color: var(--text-normal);
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+/* 控制面板 */
+.time-segments-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-group label {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.control-group select,
+.control-group input {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.button-group button {
+  padding: 6px 12px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--interactive-normal);
+  color: var(--text-normal);
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.button-group button:hover {
+  background: var(--interactive-hover);
+}
+
+.button-group button.mod-cta {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.button-group button.mod-cta:hover {
+  background: var(--interactive-accent-hover);
+}
+
+/* 统计信息 */
+.time-segments-stats {
+  margin-bottom: 12px;
+}
+
+.stats-summary {
+  padding: 8px 12px;
+  background: var(--background-secondary);
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* 时间范围信息 */
+.range-info {
+  margin-bottom: 16px;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* 内容区域 */
+.time-segments-content {
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+/* 无记录状态 */
+.no-records {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* 日期分组 */
+.day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.day-title {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.day-stats {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  background: var(--background-secondary);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.day-segments {
+  margin-bottom: 20px;
+}
+
+/* 时间段项目 */
+.time-segment-item {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--background-primary);
+}
+
+.time-segment-item:hover {
+  background: var(--background-secondary);
+  border-color: var(--interactive-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.time-range {
+  font-weight: 600;
+  color: var(--text-normal);
+  font-family: var(--font-monospace);
+}
+
+.duration {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.file-name {
+  font-weight: 500;
+  color: var(--text-normal);
+}
+
+.file-path {
+  color: var(--text-muted);
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.line-number {
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-family: var(--font-monospace);
+}
+
+/* 高亮动画 */
+.ts-highlight {
+  animation: tsFlash 1.5s ease-in-out 1;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes tsFlash {
+  0% { 
+    background-color: var(--background-primary);
+    transform: scale(1);
+    box-shadow: none;
+  }
+  25% { 
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(var(--interactive-accent-rgb), 0.5);
+  }
+  75% { 
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(var(--interactive-accent-rgb), 0.5);
+  }
+  100% { 
+    background-color: var(--background-primary);
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+/* 备用高亮样式 - 更强的视觉效果 */
+.cm-line.ts-highlight {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-left: 4px solid var(--interactive-accent-hover);
+  padding-left: 8px;
+  margin-left: -12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* 确保高亮在编辑器中可见 */
+.markdown-source-view .cm-line.ts-highlight,
+.markdown-preview-view .ts-highlight {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .time-segments-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .button-group {
+    margin-left: 0;
+    justify-content: center;
+  }
+  
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .time-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .file-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* 滚动条样式 */
+.time-segments-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.time-segments-content::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+  border-radius: 3px;
+}
+
+.time-segments-content::-webkit-scrollbar-thumb {
+  background: var(--background-modifier-border);
+  border-radius: 3px;
+}
+
+.time-segments-content::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+} 
+
+/* 多选删除功能样式 */
+.time-segment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  background: var(--background-primary);
+}
+
+.time-segment-item:hover {
+  background: var(--background-secondary);
+  border-color: var(--interactive-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.segment-checkbox {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.segment-content {
+  flex: 1;
+  cursor: pointer;
+}
+
+.segment-content:hover {
+  color: var(--text-accent);
+}
+
+.button-group button.mod-warning {
+  background: var(--color-red);
+  color: white;
+  border-color: var(--color-red);
+}
+
+.button-group button.mod-warning:hover {
+  background: var(--color-red);
+  opacity: 0.8;
+} 

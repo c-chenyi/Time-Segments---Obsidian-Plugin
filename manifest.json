@@ -1,0 +1,12 @@
+{
+  "id": "obsidian-time-segments",
+  "name": "Time Segments",
+  "version": "0.1.0",
+  "minAppVersion": "0.13.14",
+  "description": "自动记录编辑时间段，提供时间轴视图与导出。",
+  "author": "",
+  "authorUrl": "",
+  "isDesktopOnly": false,
+  "js": "main.js",
+  "css": "styles.css"
+} 
